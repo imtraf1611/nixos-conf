@@ -1,0 +1,55 @@
+{
+  options,
+  pkgs,
+  ...
+}:
+{
+  programs.nix-ld.enable = true;
+
+  programs.nix-ld.libraries = with pkgs; [
+    glib
+    dbus
+    nspr
+    nss
+    cups
+    libdbusmenu-gtk3
+    gtk3
+    libdrm
+    mesa
+    libxkbcommon
+    alsa-lib
+    expat
+    fontconfig
+    freetype
+    cairo
+    atk
+    gdk-pixbuf
+    pango
+    xorg.libX11
+    xorg.libXcomposite
+    xorg.libXdamage
+    xorg.libXxf86vm
+    xorg.libxshmfence
+    xorg.libXext
+    openssl
+    xorg.libXtst
+    xorg.libXrandr
+    xorg.libXfixes
+    libGL
+    libva
+    xorg.libxcb
+    libelf
+    pipewire
+
+    xorg.libXinerama
+    xorg.libXcursor
+    xorg.libXrender
+    xorg.libXScrnSaver
+    xorg.libXi
+    xorg.libSM
+    xorg.libICE
+    dbus-glib
+    libgbm
+
+  ];
+}
