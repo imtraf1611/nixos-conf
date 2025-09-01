@@ -16,8 +16,8 @@
         wallpaperDir = "~/Pictures/Wallpapers";
       };
       border = {
-        rounding = 4;
-        thickness = 2;
+        rounding = 12;
+        thickness = 8;
       };
     };
     cli = {

@@ -17,11 +17,12 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
-    ../../nixos/kde-plasma.nix
+    # ../../nixos/kde-plasma.nix
+    ../../nixos/gnome.nix
     ../../nixos/sound.nix
 
     ./hardware-configuration.nix
-
+    ./services.nix
     ./variables.nix
   ];
 

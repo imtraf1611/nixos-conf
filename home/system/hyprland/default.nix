@@ -8,11 +8,11 @@
 let
   border-size = "1";
   active_border = "0#ff282a36";
-  gaps-in = "4";
-  gaps-out = "4";
+  gaps-in = "6";
+  gaps-out = "6";
   active-opacity = "1.0";
   inactive-opacity = "0.95";
-  rounding = "2";
+  rounding = "11";
   blur = true;
   keyboardLayout = config.var.keyboardLayout;
 in

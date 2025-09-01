@@ -21,10 +21,12 @@
     ../../home/system/fastfetch
     ../../home/system/bat
     ../../home/system/caelestia-shell
+    ../../home/system/yazi
 
     # Programs
     ../../home/programs/discord
     ../../home/programs/ghostty
+    ../../home/programs/zen-browser
   ];
 
   home = {
@@ -35,7 +37,6 @@
     # Packages
     packages = with pkgs; [
       # Apps
-      google-chrome
       youtube-music
 
       # Development - Languages/Tools
@@ -44,10 +45,9 @@
       yarn
       pnpm
       python3
-      electron
 
       # Dev - Editors/IDEs
-      vscode-fhs
+      vscode
 
       # Utilities
       grc
@@ -72,6 +72,16 @@
       # Formatting
       nixfmt-rfc-style
     ];
+
+    sessionVariables = {
+      # Prisma
+      PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
+      PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
+      PRISMA_SCHEMA_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/schema-engine";
+
+      # Nix-ld
+      LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+    };
 
     # State version - don't touch this
     stateVersion = "25.05";
