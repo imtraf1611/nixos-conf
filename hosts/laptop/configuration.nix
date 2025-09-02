@@ -17,14 +17,8 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     ../../nixos/gnome.nix
->>>>>>> d0db58d (add assets)
-=======
     ../../nixos/gnome.nix
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
     ../../nixos/sound.nix
 
     ./hardware-configuration.nix
@@ -38,24 +32,9 @@
 
   nix.package = pkgs.nixVersions.latest;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
   services.gvfs.enable = true;
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 
-  # OpenGL
-  hardware.graphics = {
-    enable = true;
-  };
-
-=======
-  home-manager.users."${config.var.username}" = import ./home.nix;
-
->>>>>>> d0db58d (add assets)
-=======
-  home-manager.users."${config.var.username}" = import ./home.nix;
-
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
   system.stateVersion = "25.05";
 }

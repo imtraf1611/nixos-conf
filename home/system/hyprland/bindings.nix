@@ -21,17 +21,17 @@ in
         "$mod, S, exec, caelestia shell drawers toggle session"
         # Screenshots
         "$mod, Print, exec, caelestia screenshot --region"
-        "$mod SHIFT, Print, exec, caelestia screenshot --freeze"
+        "$shiftMod, Print, exec, caelestia screenshot --freeze"
 
         # Window actions
         "$mod, left, movefocus, l"
         "$mod, right, movefocus, r"
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
-        "$mod SHIFT, left, movewindow , l"
-        "$mod SHIFT, right, movewindow , r"
-        "$mod SHIFT, up, movewindow , u"
-        "$mod SHIFT, down, movewindow , d"
+        "$shiftMod, left, movewindow , l"
+        "$shiftMod, right, movewindow , r"
+        "$shiftMod, up, movewindow , u"
+        "$shiftMod, down, movewindow , d"
       ]
       ++ (builtins.concatLists (
         builtins.genList (
@@ -54,15 +54,6 @@ in
 
     extraConfig = ''
       # Volume
-<<<<<<< HEAD
-<<<<<<< HEAD
-      bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-      bindl = Super+Shift, M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-      bindle = , XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ $volumeStep%+
-      bindle = , XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ $volumeStep%-
-=======
-=======
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
       bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
       bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -70,23 +61,12 @@ in
       bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+
       bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
 
-<<<<<<< HEAD
->>>>>>> d0db58d (add assets)
-=======
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
       # Requires playerctl
       bindl = , XF86AudioNext, exec, playerctl next
       bindl = , XF86AudioPause, exec, playerctl play-pause
       bindl = , XF86AudioPlay, exec, playerctl play-pause
       bindl = , XF86AudioPrev, exec, playerctl previous
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> d0db58d (add assets)
-=======
-
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mod, mouse:272, movewindow
       bindm = $mod, mouse:273, resizewindow

@@ -10,11 +10,7 @@
   programs.caelestia = {
     enable = true;
     settings = {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
+
       appearance = {
         font = {
           family = {
@@ -25,10 +21,7 @@
           };
         };
       };
-<<<<<<< HEAD
->>>>>>> d0db58d (add assets)
-=======
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
+
       bar = {
         status = {
 
@@ -38,15 +31,7 @@
       };
       paths = {
         mediaGif = "root:/assets/bongocat.gif";
-<<<<<<< HEAD
-<<<<<<< HEAD
-        sessionGif = "~/Pictures/Gifs/kurukuru.gif";
-=======
         sessionGif = "~/Pictures/Gifs/jingliu.gif";
->>>>>>> d0db58d (add assets)
-=======
-        sessionGif = "~/Pictures/Gifs/jingliu.gif";
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
         wallpaperDir = "~/Pictures/Wallpapers";
       };
       border = {

@@ -1,18 +1,5 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "logo": {
-    "source": "~/.config/fastfetch/rem.png",
-    "type": "kitty-direct",
-    "height": 18,
-    "padding": {
-      "top": 2
-    }
-  },
-=======
-=======
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
   // "logo": {
   //   "source": "~/.config/fastfetch/rem.png",
   //   "type": "kitty-direct",
@@ -21,10 +8,6 @@
   //     "top": 2
   //   }
   // },
-<<<<<<< HEAD
->>>>>>> d0db58d (add assets)
-=======
->>>>>>> d0db58d2a79011720232b6b1d42f582909bc7d19
   "display": {
     "separator": " "
   },
