@@ -22,6 +22,7 @@
     ../../home/system/bat
     ../../home/system/caelestia-shell
     ../../home/system/yazi
+    ../../home/system/gtk
 
     # Programs
     ../../home/programs/discord
@@ -58,8 +59,8 @@
       fish
       oh-my-posh
       fastfetch
-      libgtkflow3
-      gtk3
+      libgtkflow4
+      gtk4
       bat
 
       # Misc

@@ -66,7 +66,7 @@ in
       "$terminal" = "ghostty";
       "$browser" = "zen";
       "$editor" = "code";
-      "$fileExplorer" = "thunar";
+      "$fileExplorer" = "nautilus";
 
       "$kbTerminal" = "$mod, T";
       "$kbBrowser" = "$mod, W";
