@@ -21,7 +21,6 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
-    ../../nixos/kde-plasma.nix
     ../../nixos/sound.nix
 
     ./hardware-configuration.nix

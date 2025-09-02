@@ -10,31 +10,28 @@ in
         "$mod, Q, killactive"
 
         # Apps
-        "$mod, C, exec, code"
-        "$mod, SPACE, exec, ghostty"
-        "$mod, Z, exec, zen"
-        "$mod, E, exec, nautilus"
-
-        # Swap windows
-        "$mod SHIFT, H, swapwindow, l"
-        "$mod SHIFT, L, swapwindow, r"
-        "$mod SHIFT, K, swapwindow, u"
-        "$mod SHIFT, J, swapwindow, d"
-
-        # Resize mode
-        "$mod SHIFT, R, submap, resize"
-
-        # Volume & media
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 4%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 4%-"
-
-        "$mod, Print, exec, caelestia screenshot"
+        "$kbTerminal, exec, $terminal"
+        "$kbBrowser, exec, $browser"
+        "$kbEditor, exec, $editor"
+        "$kbFileExplorer, exec, $fileExplorer"
 
         # Caelestia
         "$mod, RETURN, exec, caelestia shell drawers toggle launcher"
         "$mod, D, exec, caelestia shell drawers toggle dashboard"
         "$mod, S, exec, caelestia shell drawers toggle session"
+        # Screenshots
+        "$mod, Print, exec, caelestia screenshot --region"
+        "$mod SHIFT, Print, exec, caelestia screenshot --freeze"
+
+        # Window actions
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        "$mod SHIFT, left, movewindow , l"
+        "$mod SHIFT, right, movewindow , r"
+        "$mod SHIFT, up, movewindow , u"
+        "$mod SHIFT, down, movewindow , d"
       ]
       ++ (builtins.concatLists (
         builtins.genList (
@@ -47,26 +44,28 @@ in
             "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
           ]
         ) totalWorkspaces
-      ));
+      ))
+      ++ [
+        # Scroll through existing workspaces with mainMod + scroll
+        "$mod, mouse_up, workspace, +1"
+        "$mod, mouse_down, workspace, -1"
+      ];
     };
 
     extraConfig = ''
-      # --- Resize submap (enter with $mod+SHIFT+R) ---
-      submap = resize
-      # Vim keys
-      binde = , h, resizeactive, -20 0
-      binde = , l, resizeactive,  20 0
-      binde = , k, resizeactive,   0 -20
-      binde = , j, resizeactive,   0  20
-      # Arrow keys (optional)
-      binde = , left,  resizeactive, -20 0
-      binde = , right, resizeactive,  20 0
-      binde = , up,    resizeactive,   0 -20
-      binde = , down,  resizeactive,   0  20
-      # Exit submap
-      bind = , escape, submap, reset
-      bind = , return, submap, reset
-      submap = reset
+      # Volume
+      bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bindl = Super+Shift, M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bindle = , XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ $volumeStep%+
+      bindle = , XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ $volumeStep%-
+      # Requires playerctl
+      bindl = , XF86AudioNext, exec, playerctl next
+      bindl = , XF86AudioPause, exec, playerctl play-pause
+      bindl = , XF86AudioPlay, exec, playerctl play-pause
+      bindl = , XF86AudioPrev, exec, playerctl previous
+      # Move/resize windows with mainMod + LMB/RMB and dragging
+      bindm = $mod, mouse:272, movewindow
+      bindm = $mod, mouse:273, resizewindow
     '';
   };
 }

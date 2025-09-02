@@ -10,6 +10,13 @@
   programs.caelestia = {
     enable = true;
     settings = {
+      bar = {
+        status = {
+
+        };
+        persistent = true;
+        showOnHover = true;
+      };
       paths = {
         mediaGif = "root:/assets/bongocat.gif";
         sessionGif = "~/Pictures/Gifs/kurukuru.gif";

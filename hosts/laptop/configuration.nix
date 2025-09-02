@@ -17,8 +17,6 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
-    # ../../nixos/kde-plasma.nix
-    ../../nixos/gnome.nix
     ../../nixos/sound.nix
 
     ./hardware-configuration.nix
@@ -31,6 +29,8 @@
   };
 
   nix.package = pkgs.nixVersions.latest;
+
+  services.gvfs.enable = true;
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 

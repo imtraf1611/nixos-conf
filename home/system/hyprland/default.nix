@@ -62,6 +62,17 @@ in
       "$mod" = "SUPER";
       "$shiftMod" = "SUPER_SHIFT";
 
+      # Apps
+      "$terminal" = "ghostty";
+      "$browser" = "zen";
+      "$editor" = "code";
+      "$fileExplorer" = "thunar";
+
+      "$kbTerminal" = "$mod, T";
+      "$kbBrowser" = "$mod, W";
+      "$kbEditor" = "$mod, C";
+      "$kbFileExplorer" = "$mod, E";
+
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"
         "systemctl --user start hyprpolkitagent &"
@@ -71,8 +82,8 @@ in
 
       monitor = [
         # "DP-1,2560x1440@240,auto,1" # Primary monitor
-        ",prefered,auto,1" # Default everything
-        # ",1920x1080,auto,1"
+        # ",prefered,auto,1" # Default everything
+        ",1920x1080,auto,1"
       ];
 
       env = [
@@ -112,7 +123,7 @@ in
         gaps_in = gaps-in;
         gaps_out = gaps-out;
         border_size = border-size;
-        layout = "master";
+        layout = "dwindle";
         "col.active_border" = active_border;
       };
 
@@ -135,6 +146,10 @@ in
         new_status = true;
         allow_small_split = true;
         mfact = 0.5;
+      };
+
+      dwindle = {
+        preserve_split = true;
       };
 
       gestures = { };
