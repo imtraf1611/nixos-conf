@@ -10,6 +10,19 @@
   programs.caelestia = {
     enable = true;
     settings = {
+<<<<<<< HEAD
+=======
+      appearance = {
+        font = {
+          family = {
+            mono = "JetBrains Mono";
+          };
+          size = {
+            scale = 1;
+          };
+        };
+      };
+>>>>>>> d0db58d (add assets)
       bar = {
         status = {
 
@@ -19,7 +32,11 @@
       };
       paths = {
         mediaGif = "root:/assets/bongocat.gif";
+<<<<<<< HEAD
         sessionGif = "~/Pictures/Gifs/kurukuru.gif";
+=======
+        sessionGif = "~/Pictures/Gifs/jingliu.gif";
+>>>>>>> d0db58d (add assets)
         wallpaperDir = "~/Pictures/Wallpapers";
       };
       border = {

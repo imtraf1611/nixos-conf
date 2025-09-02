@@ -17,6 +17,10 @@
     ../../nixos/users.nix
     ../../nixos/utils.nix
     ../../nixos/hyprland.nix
+<<<<<<< HEAD
+=======
+    ../../nixos/gnome.nix
+>>>>>>> d0db58d (add assets)
     ../../nixos/sound.nix
 
     ./hardware-configuration.nix
@@ -30,6 +34,7 @@
 
   nix.package = pkgs.nixVersions.latest;
 
+<<<<<<< HEAD
   services.gvfs.enable = true;
 
   home-manager.users."${config.var.username}" = import ./home.nix;
@@ -39,5 +44,9 @@
     enable = true;
   };
 
+=======
+  home-manager.users."${config.var.username}" = import ./home.nix;
+
+>>>>>>> d0db58d (add assets)
   system.stateVersion = "25.05";
 }

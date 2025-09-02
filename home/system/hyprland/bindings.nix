@@ -54,15 +54,29 @@ in
 
     extraConfig = ''
       # Volume
+<<<<<<< HEAD
       bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bindl = Super+Shift, M, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
       bindle = , XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ $volumeStep%+
       bindle = , XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ $volumeStep%-
+=======
+      bindel = ,XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      bindel = ,XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      bindel = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bindel = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+      bindel = ,XF86MonBrightnessUp, exec, brightnessctl s 10%+
+      bindel = ,XF86MonBrightnessDown, exec, brightnessctl s 10%-
+
+>>>>>>> d0db58d (add assets)
       # Requires playerctl
       bindl = , XF86AudioNext, exec, playerctl next
       bindl = , XF86AudioPause, exec, playerctl play-pause
       bindl = , XF86AudioPlay, exec, playerctl play-pause
       bindl = , XF86AudioPrev, exec, playerctl previous
+<<<<<<< HEAD
+=======
+
+>>>>>>> d0db58d (add assets)
       # Move/resize windows with mainMod + LMB/RMB and dragging
       bindm = $mod, mouse:272, movewindow
       bindm = $mod, mouse:273, resizewindow
