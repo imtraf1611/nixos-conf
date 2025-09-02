@@ -6,17 +6,10 @@
   ...
 }:
 let
-<<<<<<< HEAD
   border-size = "1";
   active_border = "0#ff282a36";
   gaps-in = "6";
   gaps-out = "6";
-=======
-  border-size = "2";
-  active_border = "0#ff282a36";
-  gaps-in = "4";
-  gaps-out = "4";
->>>>>>> d0db58d (add assets)
   active-opacity = "1.0";
   inactive-opacity = "0.95";
   rounding = "11";
