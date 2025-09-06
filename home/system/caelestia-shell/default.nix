@@ -10,24 +10,28 @@
   programs.caelestia = {
     enable = true;
     settings = {
-
       appearance = {
         font = {
-          family = {
-            mono = "JetBrains Mono";
-          };
           size = {
             scale = 1;
           };
         };
-      };
-
-      bar = {
-        status = {
-
+        padding = {
+          scale = 1;
         };
-        persistent = true;
-        showOnHover = true;
+        rounding = {
+          scale = 1;
+        };
+        spacing = {
+          scale = 1;
+        };
+      };
+      bar = {
+        persistent = false;
+        showOnHover = false;
+      };
+      dashboard = {
+        showOnHover = false;
       };
       paths = {
         mediaGif = "root:/assets/bongocat.gif";
@@ -36,7 +40,7 @@
       };
       border = {
         rounding = 12;
-        thickness = 8;
+        thickness = 4;
       };
     };
     cli = {

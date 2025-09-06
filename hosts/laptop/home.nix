@@ -9,7 +9,7 @@
     # User Specific Config
     ./variables.nix
 
-    # System
+    # System modules
     ../../home/system/hyprland
     ../../home/system/hypridle
     ../../home/system/hyprlock
@@ -21,75 +21,88 @@
     ../../home/system/fastfetch
     ../../home/system/bat
     ../../home/system/caelestia-shell
-    ../../home/system/yazi
+    # ../../home/system/yazi
     ../../home/system/gtk
 
-    # Programs
+    # Program modules
     ../../home/programs/discord
     ../../home/programs/ghostty
     ../../home/programs/zen-browser
   ];
 
   home = {
-    # Set the home directory path for our user
     inherit (config.var) username;
-    homeDirectory = "/home/" + config.var.username;
+    homeDirectory = "/home/${config.var.username}";
+    stateVersion = "25.05"; # Don't touch this
 
-    # Packages
     packages = with pkgs; [
-      # Apps
+      # Applications
       youtube-music
+      discord
 
-      # Development - Languages/Tools
+      # Development - Languages & Runtimes
       nodejs_22
       bun
       yarn
       pnpm
       python3
 
-      # Dev - Editors/IDEs
+      # Development - Editors
       vscode
+      zed-editor
 
-      # Utilities
+      # System utilities
       grc
       zip
       unzip
       tree
       btop
+      superfile
+
+      # Shell & presentation
       fish
       oh-my-posh
       fastfetch
-      libgtkflow4
-      gtk4
       bat
 
-      # Misc
+      # GUI libraries
+      libgtkflow4
+      gtk4
+
+      # Media & hardware
       cava
       bluez
       ddcutil
       brightnessctl
       imagemagick
 
-      # Formatting
+      # Formatting tools
       nixfmt-rfc-style
     ];
 
     sessionVariables = {
-      # Prisma
+      # Prisma configuration
       PRISMA_QUERY_ENGINE_LIBRARY = "${pkgs.prisma-engines}/lib/libquery_engine.node";
       PRISMA_QUERY_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/query-engine";
       PRISMA_SCHEMA_ENGINE_BINARY = "${pkgs.prisma-engines}/bin/schema-engine";
 
-      # Nix-ld
+      # Nix-ld configuration
       LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
     };
-
-    # State version - don't touch this
-    stateVersion = "25.05";
   };
 
-  # Enable Home Manager
-  programs.home-manager = {
+  dconf = {
     enable = true;
+    settings = {
+      "org/gnome/desktop/background" = {
+        picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
+      };
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
   };
+
+  # Enable Home Manager (can be omitted - enabled by default)
+  programs.home-manager.enable = true;
 }

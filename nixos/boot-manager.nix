@@ -1,17 +1,18 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
   ...
 }:
+let
+  system = "x86_64-linux";
+  grubTheme = inputs.honkai-railway-grub-theme.packages.${system}.ruanmei-grub-theme;
+in
 {
-  environment.etc = {
+  environment.etc = { };
 
-  };
-
-  console = {
-    earlySetup = false;
-  };
+  console.earlySetup = false;
 
   boot = {
     kernelParams = lib.mkBefore [
@@ -36,17 +37,17 @@
     };
 
     loader = {
-      # grub.extraConfig = ''
-      #   GRUB_TIMEOUT_STYLE=hidden
-      #   GRUB_HIDDEN_TIMEOUT_QUIET=true
-      # '';
-      # timeout = 0;
+      grub = {
+        enable = true;
+        device = "nodev"; # EFI mode
+        efiSupport = true;
+        useOSProber = true;
 
-      systemd-boot.enable = true;
-
-      efi = {
-        canTouchEfiVariables = true;
+        theme = grubTheme;
+        splashImage = "${grubTheme}/background.png";
       };
+
+      efi.canTouchEfiVariables = true;
     };
   };
 }

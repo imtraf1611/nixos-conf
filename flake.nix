@@ -37,6 +37,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    honkai-railway-grub-theme.url = "github:voidlhf/StarRailGrubThemes";
   };
 
   outputs =
@@ -45,45 +47,41 @@
       quickshell,
       ...
     }:
+    let
+      system = "x86_64-linux";
+
+      # Common module configuration
+      commonModules = [
+        {
+          nixpkgs.overlays = [ ];
+          _module.args = { inherit inputs; };
+        }
+        inputs.home-manager.nixosModules.home-manager
+      ];
+
+      # Helper function to create system configurations
+      mkSystem =
+        hostPath: extraPackages:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+
+          modules = commonModules ++ [
+            {
+              environment.systemPackages = extraPackages;
+            }
+            hostPath
+          ];
+        };
+    in
     {
       nixosConfigurations = {
-        desktop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            {
-              nixpkgs.overlays = [ ];
-              _module.args = { inherit inputs; };
-            }
-
-            {
-              environment.systemPackages = [
-
-              ];
-            }
-
-            inputs.home-manager.nixosModules.home-manager
-            ./hosts/desktop/configuration.nix
-          ];
-        };
-
-        laptop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            {
-              nixpkgs.overlays = [ ];
-              _module.args = { inherit inputs; };
-            }
-
-            {
-              environment.systemPackages = [
-                quickshell.packages.x86_64-linux.default
-              ];
-            }
-
-            inputs.home-manager.nixosModules.home-manager
-            ./hosts/laptop/configuration.nix
-          ];
-        };
+        desktop = mkSystem ./hosts/desktop/configuration.nix [
+          quickshell.packages.${system}.default
+        ];
+        laptop = mkSystem ./hosts/laptop/configuration.nix [
+          quickshell.packages.${system}.default
+        ];
       };
+
     };
 }

@@ -19,6 +19,7 @@ in
         "$mod, RETURN, exec, caelestia shell drawers toggle launcher"
         "$mod, D, exec, caelestia shell drawers toggle dashboard"
         "$mod, S, exec, caelestia shell drawers toggle session"
+        "$mod, B, exec, caelestia shell drawers toggle bar"
         # Screenshots
         "$mod, Print, exec, caelestia screenshot --region"
         "$shiftMod, Print, exec, caelestia screenshot --freeze"
