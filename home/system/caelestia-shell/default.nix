@@ -13,17 +13,17 @@
       appearance = {
         font = {
           size = {
-            scale = 1;
+            scale = 0.8;
           };
         };
         padding = {
-          scale = 1;
+          scale = 0.8;
         };
         rounding = {
-          scale = 1;
+          scale = 0.8;
         };
         spacing = {
-          scale = 1;
+          scale = 0.8;
         };
       };
       bar = {

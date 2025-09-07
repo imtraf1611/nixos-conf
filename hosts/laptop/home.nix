@@ -41,12 +41,13 @@
       youtube-music
       discord
 
-      # Development - Languages & Runtimes
+      # Development - Languages & Runtimes & Tools
       nodejs_22
       bun
       yarn
       pnpm
       python3
+      biome
 
       # Development - Editors
       vscode
@@ -59,6 +60,7 @@
       tree
       btop
       superfile
+      git-credential-manager
 
       # Shell & presentation
       fish

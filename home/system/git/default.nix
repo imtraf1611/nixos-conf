@@ -31,9 +31,14 @@ in
       pull.rebase = false;
       push.autoSetupRemote = true;
       color.ui = "1";
+      credential.helper = "manager";
+      credential."https://github.com".username = username;
+      credential.credentialStore = "cache";
     };
 
     aliases = {
+      ci = "commit";
+      co = "checkout";
       s = "status";
     };
   };

@@ -65,7 +65,7 @@ in
       # Apps
       "$terminal" = "ghostty";
       "$browser" = "zen";
-      "$editor" = "code";
+      "$editor" = "zeditor";
       "$fileExplorer" = "nautilus";
 
       "$kbTerminal" = "$mod, T";
