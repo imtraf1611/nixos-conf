@@ -28,6 +28,7 @@
     ../../home/programs/discord
     ../../home/programs/ghostty
     ../../home/programs/zen-browser
+    ../../home/programs/zed
   ];
 
   home = {
