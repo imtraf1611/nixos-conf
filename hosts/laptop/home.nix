@@ -60,6 +60,7 @@
       tree
       btop
       superfile
+      git
       git-credential-manager
 
       # Shell & presentation

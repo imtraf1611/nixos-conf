@@ -23,24 +23,20 @@ in
       ".idea"
       "*.swp"
       "*.elc"
-
-      "result"
-      "result-*"
-
-      "auto-save-list"
     ];
-
-    extraConfig = {
-      credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
-      push = {
-        autoSetupRemote = true;
-      };
-    };
 
     aliases = {
       ci = "commit";
       co = "checkout";
       s = "status";
+    };
+
+    extraConfig = {
+      credential = {
+        helper = "manager";
+        "https://github.com".username = username;
+        credentialStore = "file://~/.git-credentials";
+      };
     };
   };
 }
