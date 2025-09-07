@@ -1,4 +1,8 @@
-{ config, ... }:
+{
+  pkgs,
+  config,
+  ...
+}:
 let
   username = config.var.git.username;
   email = config.var.git.email;
@@ -27,13 +31,10 @@ in
     ];
 
     extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = false;
-      push.autoSetupRemote = true;
-      color.ui = "1";
-      credential.helper = "manager";
-      credential."https://github.com".username = username;
-      credential.credentialStore = "cache";
+      credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
+      push = {
+        autoSetupRemote = true;
+      };
     };
 
     aliases = {
