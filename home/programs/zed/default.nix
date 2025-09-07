@@ -5,11 +5,8 @@
     enable = true;
 
     extensions = [
-      "elixir"
-      "make"
       "material-icon-theme"
       "nix"
-      "toml"
       "biome"
       "react-typescript-snippets"
       "prisma"
@@ -44,65 +41,26 @@
       };
 
       languages = {
-        "Elixir" = {
-          language_servers = [
-            "!lexical"
-            "elixir-ls"
-            "!next-ls"
-          ];
-          format_on_save = {
+        Nix = {
+          formatter = {
             external = {
-              command = "mix";
+              command = "nixfmt";
               arguments = [
-                "format"
-                "--stdin-filename"
-                "{buffer_path}"
-                "-"
+                "--quiet"
+                "--"
               ];
             };
           };
-        };
-        "HEEX" = {
-          language_servers = [
-            "!lexical"
-            "elixir-ls"
-            "!next-ls"
-          ];
-          format_on_save = {
-            external = {
-              command = "mix";
-              arguments = [
-                "format"
-                "--stdin-filename"
-                "{buffer_path}"
-                "-"
-              ];
-            };
-          };
+          format_on_save = "on";
         };
       };
 
       load_direnv = "shell_hook";
 
       lsp = {
-        rust-analyzer = {
-          binary = {
-            #                        path = lib.getExe pkgs.rust-analyzer;
-            path_lookup = true;
-          };
-        };
         nix = {
           binary = {
             path_lookup = true;
-          };
-        };
-
-        elixir-ls = {
-          binary = {
-            path_lookup = true;
-          };
-          settings = {
-            dialyzerEnabled = true;
           };
         };
       };
