@@ -35,7 +35,7 @@ in
       credential = {
         helper = "manager";
         "https://github.com".username = username;
-        credentialStore = "file://~/.git-credentials";
+        credentialStore = "cache";
       };
     };
   };
