@@ -32,6 +32,8 @@ in
     };
 
     extraConfig = {
+      init.defaultBranch = "main";
+      push.autoSetupRemote = true;
       credential = {
         helper = "manager";
         "https://github.com".username = username;
