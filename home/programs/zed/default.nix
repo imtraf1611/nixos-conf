@@ -32,7 +32,7 @@
       };
 
       base_keymap = "VSCode";
-      buffer_font_size = 16;
+      buffer_font_size = 20;
 
       icon_theme = {
         mode = "system";
@@ -85,11 +85,11 @@
         };
         dock = "bottom";
         env = {
-          TERM = "alacritty";
+          TERM = "ghostty";
         };
         font_family = "JetBrainsMono Nerd Font";
         font_features = null;
-        font_size = null;
+        font_size = 14;
         line_height = "comfortable";
         option_as_meta = false;
         shell = "system";
@@ -97,16 +97,17 @@
           breadcrumbs = false;
         };
         working_directory = "current_project_directory";
+        cursor_shape = "bar";
       };
 
       theme = {
-        dark = "One Dark";
+        dark = "Imtraf Dark";
         light = "One Light";
         mode = "system";
       };
 
       ui_font_family = "JetBrainsMono Nerd Font";
-      ui_font_size = 16;
+      ui_font_size = 14;
       vim_mode = false;
 
       formatter = {
@@ -119,6 +120,13 @@
           ];
         };
       };
+    };
+  };
+
+  xdg.configFile = {
+    "zed/themes" = {
+      source = ./themes;
+      recursive = true;
     };
   };
 }
