@@ -10,6 +10,8 @@
       "biome"
       "react-typescript-snippets"
       "prisma"
+      "color-highlight"
+      "emmet"
     ];
 
     userSettings = {
@@ -108,6 +110,17 @@
 
       ui_font_family = "JetBrainsMono Nerd Font";
       ui_font_size = 14;
+
+      "project_panel" = {
+        "indent_guides" = {
+          "show" = "never";
+        };
+        "indent_size" = 12;
+      };
+      "indent_guides" = {
+        "enabled" = true;
+      };
+
       vim_mode = false;
 
       formatter = {

@@ -73,6 +73,9 @@
       # X11 session management
       xorg.libSM
       xorg.libICE
+
+      prisma-engines
+      nodePackages.node-gyp
     ];
   };
 }
