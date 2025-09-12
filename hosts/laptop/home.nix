@@ -10,25 +10,25 @@
     ./variables.nix
 
     # System modules
-    ../../home/system/hyprland
-    ../../home/system/hypridle
-    ../../home/system/hyprlock
-    ../../home/system/cursor
-    ../../home/system/bash
-    ../../home/system/fish-shell
-    ../../home/system/oh-my-posh
-    ../../home/system/git
-    ../../home/system/fastfetch
-    ../../home/system/bat
-    ../../home/system/caelestia-shell
-    # ../../home/system/yazi
-    ../../home/system/gtk
+    ../../modules/home-manager/system/hyprland
+    ../../modules/home-manager/system/hypridle
+    ../../modules/home-manager/system/hyprlock
+    ../../modules/home-manager/system/cursor
+    ../../modules/home-manager/system/bash
+    ../../modules/home-manager/system/fish-shell
+    ../../modules/home-manager/system/oh-my-posh
+    ../../modules/home-manager/system/git
+    ../../modules/home-manager/system/fastfetch
+    ../../modules/home-manager/system/bat
+    ../../modules/home-manager/system/caelestia-shell
+    # ../../modules/home-manager/system/yazi
+    ../../modules/home-manager/system/gtk
 
     # Program modules
-    ../../home/programs/discord
-    ../../home/programs/ghostty
-    ../../home/programs/zen-browser
-    ../../home/programs/zed
+    ../../modules/home-manager/programs/discord
+    ../../modules/home-manager/programs/ghostty
+    ../../modules/home-manager/programs/zen-browser
+    ../../modules/home-manager/programs/zed
   ];
 
   home = {
@@ -48,6 +48,7 @@
       pnpm
       python3
       biome
+      gemini-cli
 
       # Development - Editors
       vscode

@@ -27,6 +27,12 @@
             echo -n "<nix-shell> "
           end
         )
+
+        echo -n "$nix_shell_info"
+        echo -n (set_color green)
+        echo -n (prompt_pwd)
+        echo -n (set_color normal)
+        echo "> "
       '';
     };
 
