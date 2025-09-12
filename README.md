@@ -56,5 +56,3 @@ cp /etc/nixos/hardware-configuration.nix hosts/<your-hostname>/
 It is recommended to add `**/*hardware-configuration.nix` to your `.gitignore` file to avoid accidentally committing your machine-specific hardware configuration.
 
 ---
-
-*This README was beautified by Gemini.*
