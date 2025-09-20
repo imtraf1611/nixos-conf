@@ -41,47 +41,44 @@
     honkai-railway-grub-theme.url = "github:voidlhf/StarRailGrubThemes";
   };
 
-  outputs =
-    inputs@{
-      nixpkgs,
-      quickshell,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
+  outputs = inputs @ {
+    nixpkgs,
+    quickshell,
+    ...
+  }: let
+    system = "x86_64-linux";
 
-      # Common module configuration
-      commonModules = [
-        {
-          nixpkgs.overlays = [ ];
-          _module.args = { inherit inputs; };
-        }
-        inputs.home-manager.nixosModules.home-manager
-      ];
+    # Common module configuration
+    commonModules = [
+      {
+        nixpkgs.overlays = [];
+        _module.args = {inherit inputs;};
+      }
+      inputs.home-manager.nixosModules.home-manager
+    ];
 
-      # Helper function to create system configurations
-      mkSystem =
-        hostPath: extraPackages:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
+    # Helper function to create system configurations
+    mkSystem = hostPath: extraPackages:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
 
-          modules = commonModules ++ [
+        modules =
+          commonModules
+          ++ [
             {
               environment.systemPackages = extraPackages;
             }
             hostPath
           ];
-        };
-    in
-    {
-      nixosConfigurations = {
-        desktop = mkSystem ./hosts/desktop/configuration.nix [
-          quickshell.packages.${system}.default
-        ];
-        laptop = mkSystem ./hosts/laptop/configuration.nix [
-          quickshell.packages.${system}.default
-        ];
       };
-
+  in {
+    nixosConfigurations = {
+      desktop = mkSystem ./hosts/desktop/configuration.nix [
+        quickshell.packages.${system}.default
+      ];
+      laptop = mkSystem ./hosts/laptop/configuration.nix [
+        quickshell.packages.${system}.default
+      ];
     };
+  };
 }

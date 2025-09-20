@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
-let
-  username = config.var.username;
-in
 {
+  config,
+  pkgs,
+  ...
+}: let
+  username = config.var.username;
+in {
   users = {
     users.${username} = {
       isNormalUser = true;

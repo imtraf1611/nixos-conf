@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zed-editor = {
     enable = true;
 
@@ -8,13 +10,20 @@
       "material-icon-theme"
       "nix"
       "biome"
-      "react-typescript-snippets"
       "prisma"
+      "react-typescript-snippets"
       "color-highlight"
       "emmet"
     ];
 
     userSettings = {
+      agent = {
+        inline_assistant_model = {
+          provider = "google";
+          model = "gemini-2.5-flash";
+        };
+      };
+
       inlay_hints = {
         enabled = true;
         show_value_hints = true;
@@ -34,7 +43,7 @@
       };
 
       base_keymap = "VSCode";
-      buffer_font_size = 20;
+      buffer_font_size = 24;
 
       icon_theme = {
         mode = "system";
@@ -44,27 +53,130 @@
 
       languages = {
         Nix = {
+          language_servers = ["nixd" "!nil"];
           formatter = {
             external = {
-              command = "nixfmt";
-              arguments = [
-                "--quiet"
-                "--"
-              ];
+              command = "alejandra";
+              arguments = ["--quiet" "--"];
             };
           };
           format_on_save = "on";
+        };
+        JavaScript = {
+          formatter = {
+            language_server = {
+              name = "biome";
+            };
+          };
+          code_actions_on_format = {
+            "source.fixAll.biome" = true;
+            "source.organizeImports.biome" = true;
+          };
+        };
+        TypeScript = {
+          inlay_hints = {
+            enabled = false;
+          };
+          formatter = {
+            language_server = {
+              name = "biome";
+            };
+          };
+          code_actions_on_format = {
+            "source.fixAll.biome" = true;
+            "source.organizeImports.biome" = true;
+          };
+        };
+        TSX = {
+          inlay_hints = {
+            enabled = false;
+          };
+          formatter = {
+            language_server = {
+              name = "biome";
+            };
+          };
+          code_actions_on_format = {
+            "source.fixAll.biome" = true;
+            "source.organizeImports.biome" = true;
+          };
+        };
+        JSON = {
+          formatter = {
+            language_server = {
+              name = "biome";
+            };
+          };
+          code_actions_on_format = {
+            "source.fixAll.biome" = true;
+            "source.organizeImports.biome" = true;
+          };
+        };
+        JSONC = {
+          formatter = {
+            language_server = {
+              name = "biome";
+            };
+          };
+          code_actions_on_format = {
+            "source.fixAll.biome" = true;
+            "source.organizeImports.biome" = true;
+          };
+        };
+        CSS = {
+          formatter = {
+            language_server = {
+              name = "biome";
+            };
+          };
+          code_actions_on_format = {
+            "source.fixAll.biome" = true;
+            "source.organizeImports.biome" = true;
+          };
+        };
+        GraphQL = {
+          formatter = {
+            language_server = {
+              name = "biome";
+            };
+          };
+          code_actions_on_format = {
+            "source.fixAll.biome" = true;
+            "source.organizeImports.biome" = true;
+          };
+        };
+        Prisma = {
+          formatter = "language_server";
+          language_servers = ["prisma-language-server"];
         };
       };
 
       load_direnv = "shell_hook";
 
       lsp = {
-        nix = {
-          binary = {
-            path_lookup = true;
+        nixd = {
+          settings = {
+            diagnostic = {
+              suppress = ["sema-extra-with"];
+            };
+          };
+          initialization_options = {
+            formatting = {
+              command = ["alejandra" "--quiet" "--"];
+            };
           };
         };
+        biome = {
+          settings = {
+            require_config_file = false;
+          };
+        };
+      };
+
+      format_on_save = "on";
+
+      git_panel = {
+        dock = "right";
       };
 
       show_whitespaces = "selection";
@@ -77,12 +189,7 @@
         detect_venv = {
           on = {
             activate_script = "default";
-            directories = [
-              ".env"
-              "env"
-              ".venv"
-              "venv"
-            ];
+            directories = [".env" "env" ".venv" "venv"];
           };
         };
         dock = "bottom";
@@ -91,7 +198,7 @@
         };
         font_family = "JetBrainsMono Nerd Font";
         font_features = null;
-        font_size = 14;
+        font_size = 16;
         line_height = "comfortable";
         option_as_meta = false;
         shell = "system";
@@ -109,37 +216,25 @@
       };
 
       ui_font_family = "JetBrainsMono Nerd Font";
-      ui_font_size = 14;
-
-      "project_panel" = {
-        "indent_guides" = {
-          "show" = "never";
-        };
-        "indent_size" = 12;
-      };
-      "indent_guides" = {
-        "enabled" = true;
-      };
+      ui_font_size = 16;
 
       vim_mode = false;
 
-      formatter = {
-        external = {
-          command = "biome";
-          arguments = [
-            "format"
-            "--write"
-            "--stdin-file-path={buffer_path}"
-          ];
+      project_panel = {
+        indent_guides = {
+          show = "never";
         };
+        indent_size = 12;
+      };
+
+      indent_guides = {
+        enabled = true;
       };
     };
   };
 
-  xdg.configFile = {
-    "zed/themes" = {
-      source = ./themes;
-      recursive = true;
-    };
+  xdg.configFile."zed/themes" = {
+    source = ./themes;
+    recursive = true;
   };
 }

@@ -4,8 +4,7 @@
   inputs,
   lib,
   ...
-}:
-let
+}: let
   border-size = "2";
   active_border = "0#ff282a36";
   gaps-in = "6";
@@ -15,8 +14,7 @@ let
   rounding = "11";
   blur = true;
   keyboardLayout = config.var.keyboardLayout;
-in
-{
+in {
   imports = [
     ./animations.nix
     ./bindings.nix
@@ -52,7 +50,7 @@ in
 
     systemd = {
       enable = false;
-      variables = [ "--all" ];
+      variables = ["--all"];
     };
 
     package = null;
@@ -77,13 +75,13 @@ in
         "dbus-update-activation-environment --systemd --all &"
         "systemctl --user start hyprpolkitagent &"
         "systemctl --user enable --now hypridle.service &"
-        "hyprctl setcursor phinger-cursors-light 24"
+        "hyprctl setcursor phinger-cursors-light 16"
       ];
 
       monitor = [
         # "DP-1,2560x1440@240,auto,1" # Primary monitor
         # ",prefered,auto,1" # Default everything
-        ",1920x1080,auto,1.25"
+        ",1920x1080,auto,1"
       ];
 
       env = [
@@ -152,7 +150,7 @@ in
         preserve_split = true;
       };
 
-      gestures = { };
+      gestures = {};
 
       misc = {
         vfr = true;

@@ -1,56 +1,54 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   totalWorkspaces = 9;
-in
-{
+in {
   wayland.windowManager.hyprland = {
     settings = {
-      bind = [
-        # Kill active window
-        "$mod, Q, killactive"
+      bind =
+        [
+          # Kill active window
+          "$mod, Q, killactive"
 
-        # Apps
-        "$kbTerminal, exec, $terminal"
-        "$kbBrowser, exec, $browser"
-        "$kbEditor, exec, $editor"
-        "$kbFileExplorer, exec, $fileExplorer"
+          # Apps
+          "$kbTerminal, exec, $terminal"
+          "$kbBrowser, exec, $browser"
+          "$kbEditor, exec, $editor"
+          "$kbFileExplorer, exec, $fileExplorer"
 
-        # Caelestia
-        "$mod, RETURN, exec, caelestia shell drawers toggle launcher"
-        "$mod, D, exec, caelestia shell drawers toggle dashboard"
-        "$mod, S, exec, caelestia shell drawers toggle session"
-        "$mod, B, exec, caelestia shell drawers toggle bar"
-        # Screenshots
-        "$mod, Print, exec, caelestia screenshot --region"
-        "$shiftMod, Print, exec, caelestia screenshot --freeze"
+          # Caelestia
+          "$mod, RETURN, exec, caelestia shell drawers toggle launcher"
+          "$mod, D, exec, caelestia shell drawers toggle dashboard"
+          "$mod, S, exec, caelestia shell drawers toggle session"
+          "$mod, B, exec, caelestia shell drawers toggle bar"
+          # Screenshots
+          "$mod, Print, exec, caelestia screenshot --region"
+          "$shiftMod, Print, exec, caelestia screenshot --freeze"
 
-        # Window actions
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
-        "$shiftMod, left, movewindow , l"
-        "$shiftMod, right, movewindow , r"
-        "$shiftMod, up, movewindow , u"
-        "$shiftMod, down, movewindow , d"
-      ]
-      ++ (builtins.concatLists (
-        builtins.genList (
-          i:
-          let
-            ws = i + 1;
-          in
-          [
-            "$mod, code:1${toString i}, workspace, ${toString ws}"
-            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-          ]
-        ) totalWorkspaces
-      ))
-      ++ [
-        # Scroll through existing workspaces with mainMod + scroll
-        "$mod, mouse_up, workspace, +1"
-        "$mod, mouse_down, workspace, -1"
-      ];
+          # Window actions
+          "$mod, left, movefocus, l"
+          "$mod, right, movefocus, r"
+          "$mod, up, movefocus, u"
+          "$mod, down, movefocus, d"
+          "$shiftMod, left, movewindow , l"
+          "$shiftMod, right, movewindow , r"
+          "$shiftMod, up, movewindow , u"
+          "$shiftMod, down, movewindow , d"
+        ]
+        ++ (builtins.concatLists (
+          builtins.genList (
+            i: let
+              ws = i + 1;
+            in [
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ]
+          )
+          totalWorkspaces
+        ))
+        ++ [
+          # Scroll through existing workspaces with mainMod + scroll
+          "$mod, mouse_up, workspace, +1"
+          "$mod, mouse_down, workspace, -1"
+        ];
     };
 
     extraConfig = ''

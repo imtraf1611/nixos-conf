@@ -3,8 +3,7 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   xdg.configFile = {
     "bat/config".text = ''
       --theme="Nord"

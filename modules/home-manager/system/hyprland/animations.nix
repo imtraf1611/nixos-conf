@@ -1,8 +1,6 @@
-{ config, ... }:
-let
+{config, ...}: let
   animationSpeed = "0.2";
-in
-{
+in {
   wayland.windowManager.hyprland.settings = {
     animations = {
       enabled = true;

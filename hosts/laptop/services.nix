@@ -2,8 +2,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   imports = [
     ./variables.nix
   ];
@@ -11,7 +10,7 @@
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql;
-    ensureDatabases = [ "mydatabase" ];
+    ensureDatabases = ["mydatabase"];
     enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
       #...
@@ -22,7 +21,6 @@
       # ipv6
       host all       all     ::1/128        trust
     '';
-
   };
 
   services.redis = {

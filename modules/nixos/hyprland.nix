@@ -1,5 +1,8 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt6ct";
   };

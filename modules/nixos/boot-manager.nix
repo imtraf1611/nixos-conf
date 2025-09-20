@@ -4,13 +4,11 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   system = "x86_64-linux";
-  grubTheme = inputs.honkai-railway-grub-theme.packages.${system}.ruanmei-grub-theme;
-in
-{
-  environment.etc = { };
+  grubTheme = inputs.honkai-railway-grub-theme.packages.${system}.castorice-grub-theme;
+in {
+  environment.etc = {};
 
   console.earlySetup = false;
 

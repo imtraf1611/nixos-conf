@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   config.var = {
     hostname = "laptop";
     username = "imtraf";
@@ -28,7 +31,7 @@
   options = {
     var = lib.mkOption {
       type = lib.types.attrs;
-      default = { };
+      default = {};
     };
   };
 }

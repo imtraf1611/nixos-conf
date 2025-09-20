@@ -1,9 +1,12 @@
 # HyprIdle is a daemon that listens for user activity and runs commands when the user has been deemed idle.
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   services.hypridle = {
     enable = true;
-    
+
     settings = {
       general = {
         ignore_dbus_inhibit = false;
@@ -22,5 +25,4 @@
   };
 
   systemd.user.services.hypridle.Unit.After = lib.mkForce "graphic-session.target";
-
 }

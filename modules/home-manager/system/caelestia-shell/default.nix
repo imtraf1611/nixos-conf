@@ -3,9 +3,8 @@
   config,
   pkgs,
   ...
-}:
-{
-  imports = [ inputs.caelestia-shell.homeManagerModules.default ];
+}: {
+  imports = [inputs.caelestia-shell.homeManagerModules.default];
 
   programs.caelestia = {
     enable = true;
@@ -13,17 +12,17 @@
       appearance = {
         font = {
           size = {
-            scale = 0.8;
+            scale = 1;
           };
         };
         padding = {
-          scale = 0.8;
+          scale = 1;
         };
         rounding = {
-          scale = 0.8;
+          scale = 1;
         };
         spacing = {
-          scale = 0.8;
+          scale = 1;
         };
       };
       bar = {
@@ -40,7 +39,7 @@
       };
       border = {
         rounding = 12;
-        thickness = 4;
+        thickness = 2;
       };
     };
     cli = {

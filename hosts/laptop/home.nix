@@ -3,8 +3,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   imports = [
     # User Specific Config
     ./variables.nix
@@ -48,7 +47,6 @@
       pnpm
       python3
       biome
-      gemini-cli
 
       # Development - Editors
       vscode
@@ -82,7 +80,7 @@
       imagemagick
 
       # Formatting tools
-      nixfmt-rfc-style
+      alejandra
     ];
 
     sessionVariables = {

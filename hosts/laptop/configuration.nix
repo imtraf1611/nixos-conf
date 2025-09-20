@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   imports = [
     # System configurations
     ../../modules/nixos/boot-manager.nix

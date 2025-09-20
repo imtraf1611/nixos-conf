@@ -3,8 +3,7 @@
   config,
   inputs,
   ...
-}:
-let
+}: let
   hostname = config.var.hostname;
   keyboardLayout = config.var.keyboardLayout;
   configDir = config.var.configDirectory;
@@ -12,8 +11,7 @@ let
   defaultLocale = config.var.defaultLocale;
   extraLocale = config.var.extraLocale;
   autoUpgrade = config.var.autoUpgrade;
-in
-{
+in {
   # Networking
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
@@ -98,7 +96,7 @@ in
   };
 
   # Environment
-  environment.pathsToLink = [ ];
+  environment.pathsToLink = [];
   environment.variables = {
     XDG_DATA_HOME = "$HOME/.local/share";
     PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
@@ -137,13 +135,13 @@ in
     enable = true;
     xdgOpenUsePortal = true;
     config = {
-      common.default = [ "gtk" ];
+      common.default = ["gtk"];
       hyprland.default = [
         "gtk"
         "hyprland"
       ];
     };
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   # Security

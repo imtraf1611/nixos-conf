@@ -1,8 +1,11 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   home.pointerCursor = {
     hyprcursor.enable = true;
-    hyprcursor.size = 24;
+    hyprcursor.size = 16;
 
     package = pkgs.phinger-cursors;
 
@@ -11,6 +14,6 @@
     x11.enable = true;
 
     name = "phingers-cursors-light";
-    size = 24;
+    size = 16;
   };
 }
