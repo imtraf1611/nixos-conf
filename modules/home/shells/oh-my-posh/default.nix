@@ -7,7 +7,7 @@
   programs.oh-my-posh = {
     enable = true;
     settings = builtins.fromJSON (
-      builtins.unsafeDiscardStringContext (builtins.readFile ./themes/emodipt-extend.omp.json)
+      builtins.unsafeDiscardStringContext (builtins.readFile ./themes/imtraf.omp.json)
     );
   };
 }

@@ -16,8 +16,8 @@
   keyboardLayout = config.var.keyboardLayout;
 in {
   imports = [
-    ./hypridle
-    ./hyprlock
+    ./hypridle.nix
+    ./hyprlock.nix
     ./animations.nix
     ./bindings.nix
   ];

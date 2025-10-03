@@ -7,26 +7,26 @@
   imports = [
     ./variables.nix
 
-    ../modules/home/apps/zen-browser
-    ../modules/home/apps/zed
-    ../modules/home/apps/obs-studio
-    ../modules/home/apps/discord
+    ../../modules/home/apps/zen-browser
+    ../../modules/home/apps/zed
+    ../../modules/home/apps/obs-studio
+    ../../modules/home/apps/discord
 
-    ../modules/home/cli/fastfetch
-    ../modules/home/cli/git
-    ../modules/home/cli/yazi
+    ../../modules/home/cli/fastfetch
+    ../../modules/home/cli/git
+    ../../modules/home/cli/yazi
 
-    ../modules/home/shells/bash
-    ../modules/home/shells/bat
-    ../modules/home/shells/fish-shell
-    ../modules/home/shells/oh-my-posh
+    ../../modules/home/shells/bash
+    ../../modules/home/shells/bat
+    ../../modules/home/shells/fish-shell
+    ../../modules/home/shells/oh-my-posh
 
-    ../modules/home/system/caelestia-shell
-    ../modules/home/system/cursor
-    ../modules/home/system/gtk
-    ../modules/home/system/hyprland
+    ../../modules/home/system/caelestia-shell
+    ../../modules/home/system/cursor
+    ../../modules/home/system/gtk
+    ../../modules/home/system/hyprland
 
-    ../modules/home/terminals/ghostty
+    ../../modules/home/terminals/ghostty
   ];
 
   home = {
@@ -98,9 +98,6 @@
   dconf = {
     enable = true;
     settings = {
-      "org/gnome/desktop/background" = {
-        picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
-      };
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };

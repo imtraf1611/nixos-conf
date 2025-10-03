@@ -7,7 +7,12 @@
   imports = [
     ./variables.nix
 
-    ../modules/home/apps/zen-browser
+    ../../modules/home/apps/zen-browser
+
+    ../../modules/home/system/caelestia-shell
+    ../../modules/home/system/cursor
+    ../../modules/home/system/gtk
+    ../../modules/home/system/hyprland
   ];
 
   home = {
