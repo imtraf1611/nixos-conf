@@ -5,29 +5,28 @@
   ...
 }: {
   imports = [
-    # User Specific Config
     ./variables.nix
 
-    # System modules
-    ../../modules/home-manager/system/hyprland
-    ../../modules/home-manager/system/hypridle
-    ../../modules/home-manager/system/hyprlock
-    ../../modules/home-manager/system/cursor
-    ../../modules/home-manager/system/bash
-    ../../modules/home-manager/system/fish-shell
-    ../../modules/home-manager/system/oh-my-posh
-    ../../modules/home-manager/system/git
-    ../../modules/home-manager/system/fastfetch
-    ../../modules/home-manager/system/bat
-    ../../modules/home-manager/system/caelestia-shell
-    # ../../modules/home-manager/system/yazi
-    ../../modules/home-manager/system/gtk
+    ../modules/home/apps/zen-browser
+    ../modules/home/apps/zed
+    ../modules/home/apps/obs-studio
+    ../modules/home/apps/discord
 
-    # Program modules
-    ../../modules/home-manager/programs/discord
-    ../../modules/home-manager/programs/ghostty
-    ../../modules/home-manager/programs/zen-browser
-    ../../modules/home-manager/programs/zed
+    ../modules/home/cli/fastfetch
+    ../modules/home/cli/git
+    ../modules/home/cli/yazi
+
+    ../modules/home/shells/bash
+    ../modules/home/shells/bat
+    ../modules/home/shells/fish-shell
+    ../modules/home/shells/oh-my-posh
+
+    ../modules/home/system/caelestia-shell
+    ../modules/home/system/cursor
+    ../modules/home/system/gtk
+    ../modules/home/system/hyprland
+
+    ../modules/home/terminals/ghostty
   ];
 
   home = {
@@ -37,7 +36,6 @@
 
     packages = with pkgs; [
       # Applications
-      youtube-music
       discord
 
       # Development - Languages & Runtimes & Tools
@@ -67,6 +65,7 @@
       oh-my-posh
       fastfetch
       bat
+      yazi
 
       # GUI libraries
       libgtkflow4

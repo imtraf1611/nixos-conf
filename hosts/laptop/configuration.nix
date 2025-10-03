@@ -17,12 +17,11 @@
     ../../modules/nixos/utils.nix
     ../../modules/nixos/hyprland.nix
     ../../modules/nixos/gnome.nix
-    ../../modules/nixos/gnome.nix
     ../../modules/nixos/sound.nix
 
     ./hardware-configuration.nix
-    ./services.nix
     ./variables.nix
+    ./services.nix
   ];
 
   nix.settings = {
@@ -33,7 +32,24 @@
 
   services.gvfs.enable = true;
 
-  home-manager.users."${config.var.username}" = import ./home.nix;
+  users.users = {
+    imtraf = {
+      isNormalUser = true;
+      description = "Laptop main user";
+      extraGroups = ["networkmanager" "wheel"];
+    };
+
+    underdel = {
+      isNormalUser = true;
+      description = "Laptop underdel user";
+      extraGroups = ["networkmanager"];
+    };
+  };
+
+  home-manager.users = {
+    imtraf = import ../../home/imtraf/home.nix;
+    underdel = import ../../home/underdel/home.nix;
+  };
 
   system.stateVersion = "25.05";
 }

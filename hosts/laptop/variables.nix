@@ -5,20 +5,10 @@
 }: {
   config.var = {
     hostname = "laptop";
-    username = "imtraf";
 
     # Upgrade/GC opt-ins
     autoUpgrade = false;
     autoGarbageCollector = true;
-
-    # NixOS config directory
-    configDirectory = "/home/" + config.var.username + "/.config/nixos";
-
-    # Git config
-    git = {
-      username = "imtraf1611";
-      email = "phamnam079202038134@gmail.com";
-    };
 
     # Locale & Keyboard
     location = "Vietnam";

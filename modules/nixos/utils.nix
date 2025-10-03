@@ -6,7 +6,6 @@
 }: let
   hostname = config.var.hostname;
   keyboardLayout = config.var.keyboardLayout;
-  configDir = config.var.configDirectory;
   timeZone = config.var.timeZone;
   defaultLocale = config.var.defaultLocale;
   extraLocale = config.var.extraLocale;
@@ -21,7 +20,6 @@ in {
   system.autoUpgrade = {
     enable = autoUpgrade;
     dates = "01:00";
-    flake = "${configDir}";
     flags = [
       "--update-input"
       "nixpkgs"
@@ -142,6 +140,7 @@ in {
       ];
     };
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    # extraPortals = [pkgs.xdg-desktop-portal-hyprland];
   };
 
   # Security

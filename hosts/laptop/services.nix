@@ -1,12 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
-  imports = [
-    ./variables.nix
-  ];
-
+{pkgs, ...}: {
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql;
