@@ -19,6 +19,10 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
 
+      clazy
+      rubik
+
+      nerd-fonts.caskaydia-cove
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
       nerd-fonts.meslo-lg
